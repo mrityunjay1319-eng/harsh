@@ -18,6 +18,11 @@
 
 <body>
 
+    <!-- Floating Music Disc Controller -->
+    <button id="floatingMusicBtn" class="floating-music-btn" onclick="toggleMusic()" title="Play / Pause Music">
+        <span id="musicDiscIcon">🎵</span>
+    </button>
+
     <!-- Canvas for Confetti & Celebration Burst -->
     <canvas id="confettiCanvas"></canvas>
 
@@ -54,9 +59,38 @@
                     but mai hamesha pyar karta raha hu<br>
                     aur hamesha karta rahunga. 🌸
                 </p>
-                <p>
+
+                <p class="shayari-text">
+                    "Chahe waqt kitna bhi badal jaye,<br>
+                    chahe dooriyan kitni bhi aa jayein,<br>
+                    mere dil me aapki jagah koi nahi le sakta... ❤️"
+                </p>
+
+                <div class="personal-heart-note">
+                    <p>
+                        Aap duniya ki aur meri life ki sabse achhi insaan ho,<br>
+                        meri life me aap <strong>Maa ke barabar value</strong> rakhti ho...<br>
+                        aur mera pyar aapke liye kabhi kam nahi hoga. ❤️
+                    </p>
+                    <p>
+                        Apne face par hamesha smile rakhna aap, aur hamesha khush rakhna khud ko.<br>
+                        Apni tabiyat par dhyan dena aur please khana hamesha time se khana. 🌸
+                    </p>
+                    <p>
+                        Aapko har khushi mile, kabhi koi gham na ho,<br>
+                        life me kabhi aapki aankhon me aansu na aayein. 🥺<br>
+                        Apna bohot khayal rakhna...
+                    </p>
+                    <p>
+                        Aapki life se, aur bohot doston aur mere saare pehchane logon se door jaane wala hu...<br>
+                        Bas apna khayal rakhna.<br>
+                        Last time ek baar aapko dekhna chahta hu, aapko gale lagana chahta hu. 🫂💔
+                    </p>
+                </div>
+
+                <p class="blessing-text">
                     Aap hamesha muskurati raho aur khush raho.<br>
-                    Bhagwan aapko duniya ki har khushi de! 🙏✨
+                    Bhagwan aapko duniya ki har khushi aur sukoon de! 🙏✨
                 </p>
             </div>
 
@@ -67,28 +101,25 @@
                     <button class="slide-btn prev-btn" onclick="prevSlide()">❮</button>
                     <div class="slides-wrapper">
                         <div class="memory-slide active">
-                            <img src="photos/Screenshot_20261108_191600_WhatsAppBusiness.jpg" alt="Memory 1">
+                            <img src="photos/Screenshot_20261109_101514_Gallery.jpg" alt="Memory 1">
                         </div>
                         <div class="memory-slide">
-                            <img src="photos/Screenshot_20261109_101514_Gallery.jpg" alt="Memory 2">
+                            <img src="photos/Screenshot_20261109_101521_Gallery.jpg" alt="Memory 2">
                         </div>
                         <div class="memory-slide">
-                            <img src="photos/Screenshot_20261109_101521_Gallery.jpg" alt="Memory 3">
+                            <img src="photos/Screenshot_20261109_101530_Gallery.jpg" alt="Memory 3">
                         </div>
                         <div class="memory-slide">
-                            <img src="photos/Screenshot_20261109_101530_Gallery.jpg" alt="Memory 4">
+                            <img src="photos/Screenshot_20261109_101535_Gallery.jpg" alt="Memory 4">
                         </div>
                         <div class="memory-slide">
-                            <img src="photos/Screenshot_20261109_101535_Gallery.jpg" alt="Memory 5">
+                            <img src="photos/Screenshot_20261109_101542_Gallery.jpg" alt="Memory 5">
                         </div>
                         <div class="memory-slide">
-                            <img src="photos/Screenshot_20261109_101542_Gallery.jpg" alt="Memory 6">
+                            <img src="photos/Screenshot_20261109_101548_Gallery.jpg" alt="Memory 6">
                         </div>
                         <div class="memory-slide">
-                            <img src="photos/Screenshot_20261109_101548_Gallery.jpg" alt="Memory 7">
-                        </div>
-                        <div class="memory-slide">
-                            <img src="photos/Screenshot_20261109_101601_Gallery.jpg" alt="Memory 8">
+                            <img src="photos/Screenshot_20261109_101601_Gallery.jpg" alt="Memory 7">
                         </div>
                     </div>
                     <button class="slide-btn next-btn" onclick="nextSlide()">❯</button>
@@ -97,7 +128,10 @@
                 <div class="slide-dots" id="slideDots"></div>
             </div>
 
-            <h3 class="closing-love">Love You Forever 🥹❤️</h3>
+            <div class="final-farewell-sign">
+                <h3 class="closing-love">Love You Forever 🥹❤️</h3>
+                <p class="sign-tag">— Bye... Your Bacha 🕊️</p>
+            </div>
 
         </div>
 

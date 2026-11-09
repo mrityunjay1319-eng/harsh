@@ -7,7 +7,7 @@ if (typeof window === "undefined" || typeof document === "undefined") {
     try {
         const { exec } = require("child_process");
         exec('start "" "index.html"');
-    } catch (e) {}
+    } catch (e) { }
     console.log("Website aapke browser me open ho gayi hai!");
     process.exit(0);
 }
@@ -112,6 +112,9 @@ function playFallbackTune() {
         const AudioContext = window.AudioContext || window.webkitAudioContext;
         if (!AudioContext) return;
         const audioCtx = new AudioContext();
+        if (audioCtx.state === "suspended") {
+            audioCtx.resume();
+        }
 
         const notes = [
             { f: 392.00, d: 0.35 }, // G4
@@ -182,7 +185,6 @@ const photoCaptions = [
     "Forever in My Heart 💖",
     "That Beautiful Day 📸",
     "Always Keep Smiling 🥹",
-    "My Peace & Happiness 🌷",
     "Happy Birthday Once Again, Babu 🎂"
 ];
 
@@ -267,20 +269,24 @@ function showSurprise() {
 
     // Try playing the audio file; if not ready or empty, play sweet fallback chime!
     const audio = document.getElementById("birthdayAudio");
+    const musicBtn = document.getElementById("floatingMusicBtn");
 
     if (audio) {
-        audio.load();
+        audio.currentTime = 0;
         const playPromise = audio.play();
         if (playPromise !== undefined) {
             playPromise.then(() => {
                 console.log("Audio playing successfully!");
+                if (musicBtn) musicBtn.classList.add("playing");
             }).catch(err => {
                 console.log("Audio play error, using fallback tune:", err);
                 playFallbackTune();
+                if (musicBtn) musicBtn.classList.add("playing");
             });
         }
     } else {
         playFallbackTune();
+        if (musicBtn) musicBtn.classList.add("playing");
     }
 
     // Start photo auto-slider
@@ -290,6 +296,25 @@ function showSurprise() {
     setTimeout(() => {
         openModal();
     }, 600);
+}
+
+// --- Toggle Music Floating Button ---
+function toggleMusic() {
+    const audio = document.getElementById("birthdayAudio");
+    const musicBtn = document.getElementById("floatingMusicBtn");
+    if (!audio) return;
+
+    if (audio.paused) {
+        audio.play().then(() => {
+            if (musicBtn) musicBtn.classList.add("playing");
+        }).catch(() => {
+            playFallbackTune();
+            if (musicBtn) musicBtn.classList.add("playing");
+        });
+    } else {
+        audio.pause();
+        if (musicBtn) musicBtn.classList.remove("playing");
+    }
 }
 
 // --- Modal Popup Controls ---
